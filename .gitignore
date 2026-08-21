@@ -1,0 +1,10 @@
+node_modules/
+build/
+dist/
+coverage/
+.idea/
+.wrangler
+.DS_Store
+*.log
+.env*
+wrangler.toml
