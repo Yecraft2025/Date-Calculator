@@ -23,6 +23,10 @@ export default function App() {
     setActiveTab('linkage');
   };
 
+  const handleClearLoadedRecord = () => {
+    setLoadedRecord(null);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
       {/* Minimalist Navbar Header */}
@@ -40,6 +44,7 @@ export default function App() {
           <ThreeParamCalculator
             onSaveHistory={addHistoryItem}
             loadedRecord={loadedRecord}
+            onClearLoadedRecord={handleClearLoadedRecord}
           />
         </div>
 

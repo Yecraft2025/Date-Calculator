@@ -27,11 +27,13 @@ import { CustomDatePicker } from './CustomDatePicker';
 interface ThreeParamCalculatorProps {
   onSaveHistory: (item: Omit<SavedHistoryItem, 'id' | 'createdAt'>) => void;
   loadedRecord?: SavedHistoryItem | null;
+  onClearLoadedRecord?: () => void;
 }
 
 export const ThreeParamCalculator: React.FC<ThreeParamCalculatorProps> = ({
   onSaveHistory,
   loadedRecord,
+  onClearLoadedRecord,
 }) => {
   const today = getTodayStr();
 
@@ -58,8 +60,11 @@ export const ThreeParamCalculator: React.FC<ThreeParamCalculatorProps> = ({
       setDaysDiff(loadedRecord.daysDiff);
       setIncludeEndDate(loadedRecord.includeEndDate);
       setActiveMode('calc_diff');
+      if (onClearLoadedRecord) {
+        onClearLoadedRecord();
     }
-  }, [loadedRecord]);
+    }
+  }, [loadedRecord, onClearLoadedRecord]);
 
   // Sync calculations whenever inputs or active mode change
   useEffect(() => {
