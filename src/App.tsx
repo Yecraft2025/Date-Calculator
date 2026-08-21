@@ -36,21 +36,21 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
-        {activeTab === 'linkage' && (
+        <div className={activeTab === 'linkage' ? 'block' : 'hidden'}>
           <ThreeParamCalculator
             onSaveHistory={addHistoryItem}
             loadedRecord={loadedRecord}
           />
-        )}
+        </div>
 
-        {activeTab === 'history' && (
+        <div className={activeTab === 'history' ? 'block' : 'hidden'}>
           <HistorySection
             history={history}
             onRemoveItem={removeHistoryItem}
             onClearHistory={clearHistory}
             onSelectRecord={handleSelectRecord}
           />
-        )}
+        </div>
       </main>
 
       {/* Footer with Author and GitHub Link */}
