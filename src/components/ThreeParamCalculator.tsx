@@ -20,7 +20,6 @@ import {
   calculateStartDate,
   getDetailedBreakdown,
   getDayOfWeekCn,
-  parseDateStr,
 } from '../utils/dateUtils';
 import { CustomDatePicker } from './CustomDatePicker';
 
